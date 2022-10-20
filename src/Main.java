@@ -10,19 +10,19 @@ public class Main {
     boolean clientFound = false;
     Path inputFile = Paths.get("src/Customers.txt");
     Path outputFile = Paths.get("src/ClientTracker.txt");
-    
+
     public Main () {
 
         //Läsa in användardata still en sträng KLAR
         //Läsa av fil och skapa lista med personer KLAR
         //Iterera över listan och kolla om strängen finns i något av objekten KLAR
-            //Om strängen inte finns > meddealnde om att anv inte finns.
+            //Om strängen inte finns > meddelande om att anv inte finns.
             //Om strängen finns:
                 //Säkerställ att betalningsdatum är senare än ett år KLAR
                     //Om nej: meddela att betalningsdatum är för mer än ett år sedan
                     //Om ja: skriv ut datum och person till fil KLAR!
 
-        //Ta in data om input/output filnamn och lägg i ifsats om dom "finns" gå vidare.
+        //Ta in data om input/output filnamn och lägg i if sats om dom "finns" gå vidare.
 
         while (true) {
             String clientInfo = UserInput.getClientInfo("notTest", isTest);
