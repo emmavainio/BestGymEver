@@ -22,15 +22,17 @@ public class FileOutputTest {
         assertEquals(1, countLinesInFile(outFile));
         assertNotEquals(2, countLinesInFile(outFile));
 
-        assertEquals("Emma Vainio, 1234567890, besökte gymmet 2022-10-19", readLinesInFile(outFile));
-        assertNotEquals("Emma Vainio, besökte gymmet 2022", readLinesInFile(outFile));
+        assertEquals("Emma Vainio, 1234567890, besökte gymmet 2022-10-19", readLineInFile(outFile));
+        assertNotEquals("Emma Vainio, besökte gymmet 2022", readLineInFile(outFile));
 
-        //Testar att metoden writePersonToFile appendar och inte skriver över
+        //Testar att metoden appendar och inte skriver över
         FileOutput.writePersonToFile(client, testDate, outFile);
         assertEquals(2, countLinesInFile(outFile));
         assertNotEquals(1, countLinesInFile(outFile));
 
-        //Ta bort all info i filen så att testerna kan köras på nytt utan att det ställer till det
+        //raderar filen så att testet kan köras på nytt
+        deleteFile(outFile);
+
     }
 
     public int countLinesInFile(Path fileToCount){
@@ -45,7 +47,7 @@ public class FileOutputTest {
         return lines;
     }
 
-    public String readLinesInFile(Path fileToRead) {
+    public String readLineInFile(Path fileToRead) {
         String stringInFile = "";
         try (Scanner sc = new Scanner(fileToRead)) {
             while (sc.hasNextLine())
@@ -55,5 +57,13 @@ public class FileOutputTest {
             e.printStackTrace();
         }
         return stringInFile;
+    }
+    public void deleteFile(Path fileToDelete) {
+        try {
+            Files.delete(fileToDelete);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
