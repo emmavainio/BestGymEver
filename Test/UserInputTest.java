@@ -10,6 +10,5 @@ public class UserInputTest {
     public void getUserInputTest() {
         assert (UserInput.getClientInfo(userInput, isTest).equals("Emma Vainio"));
         assert (UserInput.getClientInfo(noUserInput, isTest) == null);
-
     }
 }
