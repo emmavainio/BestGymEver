@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -11,16 +12,17 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class FileOutputTest {
 
+    String todaysDateAsString = LocalDate.now().toString();
+    Person client = new Person("Emma Vainio", "1234567890", todaysDateAsString);
+    Path outFile = Paths.get("Test/ClientTrackerTest.txt");
     @Test
     public void writePersonToFileTest() {
-        Person client = new Person("Emma Vainio", "1234567890", "2021-10-20");
-        Path outFile = Paths.get("Test/ClientTrackerTest.txt");
 
         FileOutput.writePersonToFile(client, outFile);
         assertEquals(1, countLinesInFile(outFile));
         assertNotEquals(2, countLinesInFile(outFile));
 
-        assertEquals("Emma Vainio, 1234567890, besökte gymmet 2022-10-19", readLineInFile(outFile));
+        assertEquals("Emma Vainio, 1234567890, besökte gymmet " + todaysDateAsString, readLineInFile(outFile));
         assertNotEquals("Emma Vainio, besökte gymmet 2022", readLineInFile(outFile));
 
         //Testar att metoden appendar och inte skriver över
