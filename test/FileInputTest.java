@@ -13,7 +13,7 @@ public class FileInputTest {
 
     @Test
     public void readFileAddPeopleToList() {
-        List<Person> people = FileInput.readDataFromFileAddToList(inFile);
+        List<Client> people = FileInput.readDataFromFileAddToList(inFile);
         assertEquals(3, people.size());
         assertNotEquals(5, people.size());
         assertEquals("Alhambra Aromes", people.get(0).getName());

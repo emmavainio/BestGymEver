@@ -1,12 +1,12 @@
 import java.time.LocalDate;
 
-public class Person {
+public class Client {
 
     private final String name;
     private final String ssn;
     private final LocalDate paymentDate;
 
-    public Person(String name, String socialSecurityNumber, String paymentDate) {
+    public Client(String name, String socialSecurityNumber, String paymentDate) {
         this.name = name;
         this.ssn = socialSecurityNumber;
         this.paymentDate = parseDate(paymentDate);

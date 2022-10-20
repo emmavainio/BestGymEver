@@ -6,11 +6,11 @@ import java.util.Objects;
 
 public class IteratorTest {
 
-    Person p1 = new Person("Emma Vainio", "1234567890", "2021-01-01");
-    Person p2 = new Person("Rakel Vainio", "2345678901", "2022-01-01");
-    Person p3 = new Person("Oleg Vainio", "3456789012", "2019-01-01");
+    Client p1 = new Client("Emma Vainio", "1234567890", "2021-01-01");
+    Client p2 = new Client("Rakel Vainio", "2345678901", "2022-01-01");
+    Client p3 = new Client("Oleg Vainio", "3456789012", "2019-01-01");
 
-    List<Person> allClients = Arrays.asList(p1, p2, p3);
+    List<Client> allClients = Arrays.asList(p1, p2, p3);
 
     String userInputCorrectName = "EMMA Vainio";
     String userInputIncorrectName = "Greger Vainio";

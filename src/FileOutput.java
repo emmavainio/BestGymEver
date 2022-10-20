@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 public class FileOutput {
 
-    public static void writePersonToFile(Person client, Path outFile) {
+    public static void writePersonToFile(Client client, Path outFile) {
         try(PrintWriter writer = new PrintWriter(new FileWriter(outFile.toString(), true))){
             writer.println(client.getName() + ", " + client.getSsn() + ", besökte gymmet " + LocalDate.now());
         }

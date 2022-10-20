@@ -5,7 +5,7 @@ import java.time.Month;
 
 public class PersonTest {
 
-    Person p = new Person("Emma Vainio", "9411285803", "2022-04-01");
+    Client p = new Client("Emma Vainio", "9411285803", "2022-04-01");
 
     @Test
     public void parseDateTest() {

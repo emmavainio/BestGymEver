@@ -14,9 +14,9 @@ public class Main {
             if (clientInfo == null)
                 System.exit(0);
 
-            List<Person> allClients = FileInput.readDataFromFileAddToList(inputFile);
+            List<Client> allClients = FileInput.readDataFromFileAddToList(inputFile);
 
-            Person client = Iterator.iterateListToFindClient(clientInfo, allClients);
+            Client client = Iterator.iterateListToFindClient(clientInfo, allClients);
             boolean clientFound = false;
             if (client == null)
                 JOptionPane.showMessageDialog(null, "Kunden finns inte!");

@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 public class FileOutputTest {
 
     String todaysDateAsString = LocalDate.now().toString();
-    Person client = new Person("Emma Vainio", "1234567890", todaysDateAsString);
+    Client client = new Client("Emma Vainio", "1234567890", todaysDateAsString);
     Path outFile = Paths.get("Test/ClientTrackerTest.txt");
     @Test
     public void writePersonToFileTest() {
