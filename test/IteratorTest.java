@@ -21,12 +21,10 @@ public class IteratorTest {
     public void iterateListToFindClientTest() {
         assert (Objects.equals(Iterator.iterateListToFindClient(userInputCorrectName, allClients), c1));
         assert (!Objects.equals(Iterator.iterateListToFindClient(userInputCorrectName, allClients), c2));
-
         assert(Iterator.iterateListToFindClient(userInputIncorrectName, allClients) == null);
 
         assert (Objects.equals(Iterator.iterateListToFindClient(userInputCorrectSsn, allClients), c3));
         assert (!Objects.equals(Iterator.iterateListToFindClient(userInputCorrectSsn, allClients), c2));
-
         assert(Iterator.iterateListToFindClient(userInputIncorrectSsn, allClients) == null);
 
     }
