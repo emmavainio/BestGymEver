@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -6,13 +7,13 @@ import java.util.Scanner;
 
 public class FileInput {
 
-    public static List<Person> readDataFromFileAddToList(Path p) {
+    public static List<Person> readDataFromFileAddToList(Path inFile) {
         List<Person> allPeople = new ArrayList<>();
         String firstLine = "";
         String secondLine = "";
         String[] personDataPartsFirstLine;
 
-        try(Scanner sc = new Scanner(p)){
+        try(Scanner sc = new Scanner(inFile)){
             while (sc.hasNextLine()){
                 firstLine = sc.nextLine();
                 personDataPartsFirstLine = firstLine.split(",");
@@ -24,12 +25,7 @@ public class FileInput {
                         secondLine));
             }
         }
-        catch (FileNotFoundException e) {
-            System.out.println("Filen kunde inte hittas");
-            e.printStackTrace();
-            System.exit(0);
-        }
-        catch (Exception e) {
+        catch (IOException e) {
             System.out.println("Något gick fel");
             e.printStackTrace();
             System.exit(0);

@@ -7,7 +7,6 @@ import java.util.List;
 public class Main {
 
     boolean isTest = false;
-    boolean clientFound = false;
     Path inputFile = Paths.get("src/Customers.txt");
     Path outputFile = Paths.get("src/ClientTracker.txt");
 
@@ -21,13 +20,14 @@ public class Main {
             List<Person> allClients = FileInput.readDataFromFileAddToList(inputFile);
 
             Person client = Iterator.iterateListToFindClient(clientInfo, allClients);
+            boolean clientFound = false;
             if (client == null)
                 JOptionPane.showMessageDialog(null, "Kunden finns inte!");
             else
                 clientFound = true;
 
             if (clientFound) {
-                boolean hasPaidLessThanAYearAgo = DateComparator.isLessThanOneYearAgo(LocalDate.now(), client.paymentDate);
+                boolean hasPaidLessThanAYearAgo = DateComparator.isLessThanOneYearAgo(client.paymentDate);
 
                 if (hasPaidLessThanAYearAgo) {
                     FileOutput.writePersonToFile(client, LocalDate.now(), outputFile);

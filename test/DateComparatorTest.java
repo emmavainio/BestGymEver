@@ -5,13 +5,13 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DateComparatorTest {
-    LocalDate testTodaysDate = LocalDate.of(2022, 10, 19);
-    LocalDate lessThanOneYearAgo = LocalDate.of(2022, 4, 20);
-    LocalDate moreThanOneYearAgo = LocalDate.of(2021, 10, 18);
+    LocalDate todaysDate = LocalDate.now();
+    LocalDate lessThanOneYearAgo = todaysDate.minusMonths(6);
+    LocalDate moreThanOneYearAgo = todaysDate.minusYears(2);
 
     @Test
     public void isMoreThanOneYearAgoTest() {
-        assertTrue(DateComparator.isLessThanOneYearAgo(testTodaysDate, lessThanOneYearAgo));
-        assertFalse(DateComparator.isLessThanOneYearAgo(testTodaysDate, moreThanOneYearAgo));
+        assertTrue(DateComparator.isLessThanOneYearAgo(lessThanOneYearAgo));
+        assertFalse(DateComparator.isLessThanOneYearAgo(moreThanOneYearAgo));
     }
 }
