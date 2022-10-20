@@ -10,6 +10,7 @@ public class Main {
     boolean clientFound = false;
     Path inputFile = Paths.get("src/Customers.txt");
     Path outputFile = Paths.get("src/ClientTracker.txt");
+    
     public Main () {
 
         //Läsa in användardata still en sträng KLAR
