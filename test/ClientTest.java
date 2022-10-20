@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.time.Month;
 
-public class PersonTest {
+public class ClientTest {
 
     Client p = new Client("Emma Vainio", "9411285803", "2022-04-01");
 

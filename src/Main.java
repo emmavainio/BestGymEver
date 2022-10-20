@@ -7,23 +7,23 @@ public class Main {
     Path inputFile = Paths.get("src/Customers.txt");
     Path outputFile = Paths.get("src/ClientTracker.txt");
 
-    public Main () {
+    public Main() {
 
-        while (true) {
+        while(true) {
             String clientInfo = JOptionPane.showInputDialog("Skriv in namn eller personnummer");
-            if (clientInfo == null)
+            if(clientInfo == null)
                 System.exit(0);
 
             List<Client> allClients = FileInput.readDataFromFileAddToList(inputFile);
 
             Client client = Iterator.iterateListToFindClient(clientInfo, allClients);
             boolean clientFound = false;
-            if (client == null)
+            if(client == null)
                 JOptionPane.showMessageDialog(null, "Kunden finns inte!");
             else
                 clientFound = true;
 
-            if (clientFound) {
+            if(clientFound) {
                 boolean hasPaidLessThanAYearAgo = DateComparator.isLessThanOneYearAgo(client.getPaymentDate());
 
                 if (hasPaidLessThanAYearAgo) {
