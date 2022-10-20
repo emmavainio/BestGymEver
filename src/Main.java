@@ -28,9 +28,11 @@ public class Main {
 
             if (clientFound) {
                 boolean hasPaidLessThanAYearAgo = DateComparator.isLessThanOneYearAgo(LocalDate.now(), client.paymentDate);
+
                 if (hasPaidLessThanAYearAgo) {
                     FileOutput.writePersonToFile(client, LocalDate.now(), outputFile);
-                    JOptionPane.showMessageDialog(null, client.getName() + " har lagts till i PT-filen");
+                    JOptionPane.showMessageDialog(null, client.getName() +
+                            " har lagts till i PT-filen");
                 }
                 else
                     JOptionPane.showMessageDialog(null, client.getName() +
