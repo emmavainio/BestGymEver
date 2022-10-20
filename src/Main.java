@@ -1,19 +1,16 @@
 import javax.swing.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDate;
 import java.util.List;
 
 public class Main {
-
-    boolean isTest = false;
     Path inputFile = Paths.get("src/Customers.txt");
     Path outputFile = Paths.get("src/ClientTracker.txt");
 
     public Main () {
 
         while (true) {
-            String clientInfo = UserInput.getClientInfo("notTest", isTest);
+            String clientInfo = JOptionPane.showInputDialog("Skriv in namn eller personnummer");
             if (clientInfo == null)
                 System.exit(0);
 
@@ -27,10 +24,10 @@ public class Main {
                 clientFound = true;
 
             if (clientFound) {
-                boolean hasPaidLessThanAYearAgo = DateComparator.isLessThanOneYearAgo(client.paymentDate);
+                boolean hasPaidLessThanAYearAgo = DateComparator.isLessThanOneYearAgo(client.getPaymentDate());
 
                 if (hasPaidLessThanAYearAgo) {
-                    FileOutput.writePersonToFile(client, LocalDate.now(), outputFile);
+                    FileOutput.writePersonToFile(client, outputFile);
                     JOptionPane.showMessageDialog(null, client.getName() +
                             " har lagts till i PT-filen");
                 }

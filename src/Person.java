@@ -2,9 +2,9 @@ import java.time.LocalDate;
 
 public class Person {
 
-    String name;
-    String ssn;
-    LocalDate paymentDate;
+    private final String name;
+    private final String ssn;
+    private final LocalDate paymentDate;
 
     public Person(String name, String socialSecurityNumber, String paymentDate) {
         this.name = name;
