@@ -27,7 +27,7 @@ public class Main {
                 boolean hasPaidLessThanAYearAgo = DateComparator.isLessThanOneYearAgo(client.getPaymentDate());
 
                 if (hasPaidLessThanAYearAgo) {
-                    FileOutput.writePersonToFile(client, outputFile);
+                    FileOutput.writeClientToFile(client, outputFile);
                     JOptionPane.showMessageDialog(null, client.getName() +
                             " har lagts till i PT-filen");
                 }

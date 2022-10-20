@@ -16,9 +16,9 @@ public class FileOutputTest {
     Client client = new Client("Emma Vainio", "1234567890", todaysDateAsString);
     Path outFile = Paths.get("Test/ClientTrackerTest.txt");
     @Test
-    public void writePersonToFileTest() {
+    public void writeClientToFileTest() {
 
-        FileOutput.writePersonToFile(client, outFile);
+        FileOutput.writeClientToFile(client, outFile);
         assertEquals(1, countLinesInFile(outFile));
         assertNotEquals(2, countLinesInFile(outFile));
 
@@ -26,7 +26,7 @@ public class FileOutputTest {
         assertNotEquals("Emma Vainio, besökte gymmet 2022", readLineInFile(outFile));
 
         //Testar att metoden appendar och inte skriver över
-        FileOutput.writePersonToFile(client, outFile);
+        FileOutput.writeClientToFile(client, outFile);
         assertEquals(2, countLinesInFile(outFile));
         assertNotEquals(1, countLinesInFile(outFile));
 
